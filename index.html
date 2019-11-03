@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 29</title>
+</head>
+<body>
+	<script>
+		const obj = {
+			name: 'John',
+			surname: 'Green',
+			city: 'Vancouver'
+		}
+		const map = new Map();
+		map.set('name', 'Nick');
+		map.set('surname', 'Brown');
+		map.set(33, '77');
+
+		const getKeys = (object) => {
+			let keys = [];
+			if(object instanceof Map) {
+				object.forEach( (value, key) => {
+					keys.push(key);
+				})
+			} else {
+				for(let key in object) {
+					if (obj.hasOwnProperty(key)) {
+						keys.push(key);
+					}
+				}
+			}	
+			return keys;
+		};
+
+		console.log(getKeys(obj));
+		console.log(getKeys(map));
+
+		const getValues = (object) => {
+			let values = [];
+			if(object instanceof Map) {
+				object.forEach( (value, key) => {
+					values.push(value);
+				})
+			} else {
+				for(let key in object) {
+					if (obj.hasOwnProperty(key)) {
+						values.push(object[key]);
+					}
+				}
+			}	
+			return values;
+		};
+
+		console.log(getValues(obj));
+		console.log(getValues(map));
+
+		const getEntries = (object) => {
+			let entries = [];
+			if(object instanceof Map) {
+				object.forEach( (value, key) => {
+					let arr = [];
+					arr.push(key);
+					arr.push(value);
+					entries.push(arr);
+				})
+			} else {
+				for(let key in object) {
+					if (obj.hasOwnProperty(key)) {
+						let arr = [];
+						arr.push(key);
+						arr.push(object[key]);
+						entries.push(arr);
+					}
+				}
+			}
+			return entries;
+		};
+
+		console.log(getEntries(obj));
+		console.log(getEntries(map));
+		
+	</script>
+</body>
+</html>
